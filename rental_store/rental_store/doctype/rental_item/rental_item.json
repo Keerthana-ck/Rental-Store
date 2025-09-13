@@ -1,0 +1,104 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-12 14:38:21.361853",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item",
+  "qty",
+  "available_qty",
+  "rent_rate",
+  "amount",
+  "rental_days",
+  "column_break_wyvo",
+  "is_damaged",
+  "damaged_rate",
+  "no_of_damaged_item",
+  "damage_rate_of_items"
+ ],
+ "fields": [
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item",
+   "options": "Item"
+  },
+  {
+   "fieldname": "qty",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Qty"
+  },
+  {
+   "fetch_from": "item.custom_rental_rate",
+   "fieldname": "rent_rate",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Rent Rate"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount "
+  },
+  {
+   "fetch_from": "item.opening_stock",
+   "fieldname": "available_qty",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Available qty"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_damaged",
+   "fieldtype": "Check",
+   "label": "is_damaged"
+  },
+  {
+   "depends_on": "eval:doc.is_damaged",
+   "fieldname": "no_of_damaged_item",
+   "fieldtype": "Int",
+   "label": "No of Damaged Item",
+   "mandatory_depends_on": "eval:doc.is_damaged"
+  },
+  {
+   "fieldname": "column_break_wyvo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.is_damaged",
+   "fetch_from": "item.custom_damaged_rate",
+   "fieldname": "damaged_rate",
+   "fieldtype": "Currency",
+   "label": "Damaged Rate"
+  },
+  {
+   "fieldname": "rental_days",
+   "fieldtype": "Int",
+   "label": "Rental Days"
+  },
+  {
+   "fieldname": "damage_rate_of_items",
+   "fieldtype": "Currency",
+   "label": "Damage Rate of items"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-09-12 23:44:25.413700",
+ "modified_by": "Administrator",
+ "module": "Rental store",
+ "name": "Rental Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
